@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.generics.BotSession;
 import org.telegram.telegrambots.meta.generics.LongPollingBot;
+import ru.telegram.bot.manager.api.BotManager;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class BotManager {
+public class BotManagerImpl implements BotManager {
 
     private final TelegramBotsApi telegramBotsApi;
 

@@ -1,11 +1,13 @@
-package ru.telegram.bot.bots.command.iface;
+package ru.telegram.bot.bots.command.api;
 
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand;
 
 /**
- * Абстрактный класс для команд бота
+ * Базовый класс для команд бота
+ *
+ * использовать совместно с интерфейсом-маркером
  */
-public abstract class BotCommandAbstract extends BotCommand {
+public abstract class AbstractBotCommand extends BotCommand {
 
     /**
      * Construct a command
@@ -13,7 +15,7 @@ public abstract class BotCommandAbstract extends BotCommand {
      *                          enter into chat)
      * @param description       the description of this command
      */
-    public BotCommandAbstract(final String commandIdentifier, final String description) {
+    public AbstractBotCommand(final String commandIdentifier, final String description) {
         super(commandIdentifier, description);
     }
 }

@@ -1,19 +1,24 @@
-package ru.telegram.bot.bots.iface;
+package ru.telegram.bot.bots.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
-import ru.telegram.bot.bots.command.iface.BotCommandAbstract;
-import ru.telegram.bot.bots.command.iface.RootBotCommand;
+import ru.telegram.bot.bots.command.api.AbstractBotCommand;
+import ru.telegram.bot.bots.command.api.SourceMarkerBotCommand;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Базовый класс для ботов.
+ * @param <C> Маркер команд
+ */
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Slf4j
-public abstract class TelegramBotCommand<C extends RootBotCommand> extends TelegramLongPollingCommandBot {
+public abstract class AbstractTelegramCommandBot<C extends SourceMarkerBotCommand> extends TelegramLongPollingCommandBot {
+
 
     @Autowired
     private List<C> commands;
@@ -30,7 +35,7 @@ public abstract class TelegramBotCommand<C extends RootBotCommand> extends Teleg
     }
 
 
-    private BotCommandAbstract logInfo(final BotCommandAbstract command) {
+    private AbstractBotCommand logInfo(final AbstractBotCommand command) {
         log.info("{} -> register command: {}", getBotUsername(), command.getCommandIdentifier());
         return command;
     }

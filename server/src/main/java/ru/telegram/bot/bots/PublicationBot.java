@@ -4,12 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.telegram.bot.config.TelegramConfig;
-import ru.telegram.bot.bots.command.iface.PublicationCommand;
-import ru.telegram.bot.bots.iface.TelegramBotCommand;
+import ru.telegram.bot.bots.command.publication.PublicationMarkerCommand;
+import ru.telegram.bot.bots.api.AbstractTelegramCommandBot;
 
 @Component
 @Slf4j
-public class PublicationBot extends TelegramBotCommand<PublicationCommand> {
+public class PublicationBot extends AbstractTelegramCommandBot<PublicationMarkerCommand> {
 
 
     @Override

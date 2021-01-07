@@ -5,12 +5,11 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
-import ru.telegram.bot.bots.command.iface.BotCommandAbstract;
-import ru.telegram.bot.bots.command.iface.PublicationCommand;
+import ru.telegram.bot.bots.command.api.AbstractBotCommand;
 
 @Component
 @Slf4j
-public class PublicationStopCommand extends BotCommandAbstract implements PublicationCommand {
+public class PublicationStopCommand extends AbstractBotCommand implements PublicationMarkerCommand {
 
     public PublicationStopCommand() {
         super("stop", "");
