@@ -11,6 +11,6 @@ public class AuthURLConstants {
     public static final String REST_AUTH = REST + AUTH;
 
     public static final String TOKEN = REST_AUTH + "/token";
-    public static final String HEALTH_CHECK = REST_AUTH + "health_check";
+    public static final String HEALTH_CHECK = REST_AUTH + "/health_check";
 
 }

@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider;
+import ru.telegram.bot.model.User;
 
 import javax.annotation.PostConstruct;
+import java.util.Optional;
 
-public class AbstractAuthenticatedManager extends PreAuthenticatedAuthenticationProvider implements AuthenticationManager {
+public abstract class AbstractAuthenticatedManager extends PreAuthenticatedAuthenticationProvider implements AuthenticationManager {
 
     @Autowired
     private UserDetailsManager userDetailsManager;
@@ -23,4 +25,10 @@ public class AbstractAuthenticatedManager extends PreAuthenticatedAuthentication
     public Authentication authenticate(Authentication authentication) {
         return authentication;
     }
+
+
+    public abstract Optional<User> authenticateByLogin(User user);
+
+
+    public abstract Optional<User> authenticateByPassword(User user);
 }
